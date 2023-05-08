@@ -1,0 +1,37 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AjMusicAdmin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AjMusicAdmin.styles.css" asp-append-version="true" />
+</head>
+
+
+<header>
+    <section id="logo" class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-row align-items-center">
+            <img src="~/WaveForm.png" width="100" height="100"/>
+            <h1 class="title">Ajfy</h1>
+        </div>
+        <h6 class="text-end admin mt-1">Admin app</h6>
+           <div class="d-flex flex-row align-items-baseline justify-content-around mt-2 mb-5  navbar">
+               <a asp-controller="Dashboard" asp-action="DashBoardIndex"><img src="~/dashboard.png" width="20" height="20"/></a>
+           </div>
+    </section>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        </div>
+</header>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</html>

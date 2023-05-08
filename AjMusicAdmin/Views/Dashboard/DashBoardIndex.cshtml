@@ -1,0 +1,60 @@
+﻿<!-- Dashboard -->
+@{
+    var usersCount = ViewBag.usersCount;
+    var tracksCount = ViewBag.tracksCount;
+    var artistsCount = ViewBag.artistsCount;
+    var data = ViewBag.data;
+
+}
+
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/trackindex.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AjMusicAdmin.styles.css" asp-append-version="true" />
+    </head>
+<body>
+    @if(data == null )
+    {
+        
+    <section class="d-flex flex-row align-items-center justify-content-center">
+        <a asp-controller="Users" asp-action="Index">
+        <div class="template mx-5 d-flex flex-column align-items-center ">
+            <div class="cards mt-4">
+               <h1 class="text-white text-center">@usersCount</h1> 
+               <h1>Users</h1>
+            </div>
+        </div>
+        </a>
+        <a asp-controller="Tracks" asp-action="TracksIndex">
+        <div class="template mx-5 d-flex flex-column align-items-center">
+            <div class="cards mt-4">
+               <h1 class="text-white text-center">@tracksCount</h1> 
+               <h1>Tracks</h1>
+            </div>
+        </div>
+        </a>
+        <div class="template mx-5 d-flex flex-column align-items-center">
+            <div class="cards mt-4">
+               <h1 class="text-white text-center">@artistsCount</h1> 
+               <h1>Artist</h1>
+            </div>
+        </div>
+        </section>
+    }
+    else
+    {
+        <div class="d-flex flex-column align-items-center">
+            <p style="color:#ad00ff">@data</p>
+        </div>
+    }
+
+</body>
+</html>
+
+
+

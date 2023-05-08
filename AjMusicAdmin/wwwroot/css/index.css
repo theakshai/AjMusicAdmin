@@ -1,0 +1,41 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800;800&display=swap');
+
+body{
+    font-family: Poppins;
+    background-color:#262625;
+}
+
+.title{
+    color:#ad00ff;
+    font-size:8rem;
+}
+
+.admin{
+    color:#ad00ff;
+}
+
+.card-style{
+    width: 5rem;
+    height:2rem;
+}
+
+.cards{
+    color:#ad00ff;
+}
+.btn-custom{
+    background-color: #ad00ff;
+    border-radius:5rem;
+}
+
+.navbar{
+    width: 10rem;
+    background-color: black;
+    border-radius:5rem;
+}
+
+.template{
+    width:10rem;
+    height:10rem;
+    background-color: black;
+    border-radius:2rem;
+}

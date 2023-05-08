@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var TracksData = ViewBag.TracksData;
+    var NoData = ViewBag.NoData;
+    Layout = null;
+}
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/trackindex.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AjMusicAdmin.styles.css" asp-append-version="true" />
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+    </head>
+    <body>
+    @if (ViewBag.TracksData == null)
+    {
+        <p class="text-white">@NoData</p>
+    }
+    else
+    {
+        <div class="d-flex flex-row align-items-center justify-content-around singleTrack-card m-5 p-5" >
+                <img src="@TracksData[0]["imgUrl"]" width="400rem" height="400rem" class="img-card"/>
+            <div class="d-flex flex-column align-items-start mx-5">
+                    <p class="data">Title: <span class="text-white">@TracksData[0]["title"]</span></p>
+                    <p class="data">Song By: <span class="text-white">@TracksData[0]["name"]</span></p>
+                    <p class="data">Like: <span class="text-white">@TracksData[0]["likes"]</span></p>
+                    <p class="data">Duration: <span class="text-white">@TracksData[0]["duration"] secs</span></p>
+                    <audio controls >
+                        <source src="@TracksData[0]["previewUrl"]" type="audio/mpeg">
+                    </audio>
+
+                    <p class="data">Added On: <span class="text-white">@TracksData[0]["addedOn"]</span></p>
+                    <a asp-action="TracksIndex" class="btn btn-custom">Back</a>
+
+            </div>
+        </div>
+    }
+</body>
+
+    </html>

@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var SearchData = ViewBag.SearchData;
+}
+
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/trackindex.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/adddata.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/singlemusic.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AjMusicAdmin.styles.css" asp-append-version="true" />
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+    </head>
+
+    <body>
+        <div class="d-flex flex-row justify-content-center align-items-center mt-5">
+        <form asp-controller="Tracks" asp-action="AddSong" method="get">
+            <input placeholder="Song" type="text" name="song" class="search-field"/>
+            <input type="submit" name="song" value="Search" class="btn btn-custom"/>
+        </form>
+        </div>
+
+    @if (SearchData != null)
+    {
+        <div class="d-flex flex-row align-items-center m-5 px-5">
+            <img src="@SearchData["img_url"]" height="200rem" width="200rem"/>
+        <div class="d-flex flex-column align-items-start m-5">
+                <p class="data">Title: <span class="text-white">@SearchData["title"]</span></p>
+                <p class="data">Artist: <span class="text-white">@SearchData["artist_name"]</span></p>
+                    <p class="data">Duration: <span class="text-white">@SearchData["duration"] secs</span></p>
+                    <audio controls>
+                        <source src="@SearchData["preview_url"]">
+                    </audio>
+                    <div class="d-flex flex-row align-items-baseline">
+
+                    <a asp-action="TracksIndex" class="btn btn-custom">Back</a>
+                    <form asp-controller="Tracks" asp-action="AddSong" method="get" class="mx-2">
+                        <input placeholder="" type="hidden" name="songData" value="@SearchData">
+                        <input type="submit" name="songData" value="Add to Db" class="btn btn-custom">
+                    </form>
+                    </div>
+        </div>
+        </div>
+    }
+    
+    else
+    {
+        
+            <div class="d-flex flex-column align-items-center">
+                <p class="text-white">Search Songs to Add</p>
+        </div>
+    }
+</body>
+</html>
