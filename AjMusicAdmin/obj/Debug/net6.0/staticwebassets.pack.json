@@ -277,6 +277,10 @@
       "PackagePath": "staticwebassets\\musictrack.png"
     },
     {
+      "Id": "C:\\Users\\Dell\\Desktop\\AjMusicAdmin\\AjMusicAdmin\\wwwroot\\playlist.png",
+      "PackagePath": "staticwebassets\\playlist.png"
+    },
+    {
       "Id": "C:\\Users\\Dell\\Desktop\\AjMusicAdmin\\AjMusicAdmin\\wwwroot\\user.png",
       "PackagePath": "staticwebassets\\user.png"
     },

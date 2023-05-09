@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hEq9OWqyhO179jdlr3U8ZP9ucjUFOVt+WOFBs73pv+4=",
+  "Hash": "e5W6uUaXw4MdjvQCGSiXgeI/U8CgEMA8yhe3kY8ml2w=",
   "Source": "AjMusicAdmin",
   "BasePath": "_content/AjMusicAdmin",
   "Mode": "Default",
@@ -2208,6 +2208,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\musictrack.png"
+    },
+    {
+      "Identity": "C:\\Users\\Dell\\Desktop\\AjMusicAdmin\\AjMusicAdmin\\wwwroot\\playlist.png",
+      "SourceId": "AjMusicAdmin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dell\\Desktop\\AjMusicAdmin\\AjMusicAdmin\\wwwroot\\",
+      "BasePath": "_content/AjMusicAdmin",
+      "RelativePath": "playlist.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\playlist.png"
     },
     {
       "Identity": "C:\\Users\\Dell\\Desktop\\AjMusicAdmin\\AjMusicAdmin\\wwwroot\\user.png",

@@ -3,6 +3,7 @@
 *@
 @{
     var TracksData = ViewBag.TracksData;
+    var SearchedSong = ViewBag.SearchedSong;
 }
 
 <html>
@@ -20,8 +21,26 @@
     <body>
 
         <div class="d-flex flex-row justify-content-end align-items-end mb-5">
+            <form asp-action="TracksIndex"method="get">
+                <input name="query" style="border-radius:2rem"/>
+                <input  type="submit" value="Search" class="btn btn-custom mx-2"/>
+            </form>
         <a asp-action="AddSong" class="btn btn-custom">Add Song </a>
         </div>
+    @if (SearchedSong != null && SearchedSong?.Count != 0)
+    {
+
+        <a asp-action="SingleTrack" asp-route-id="@SearchedSong[0]["trackId"]">
+        <div class="music-card d-flex flex-row justify-content-around align-items-center track-card m-5">
+            <img src=@SearchedSong[0]["imgUrl"] width="40" height="40" class="m-2" />
+            <p class="m-2 text-white">@SearchedSong[0]["title"]</p>
+            <p class="m-2 text-white">@SearchedSong[0]["name"]</p>
+            <audio controls>
+                <source src="@SearchedSong[0]["previewUrl"]" type="audio/mp3">
+            </audio>
+        </div>
+        </a>
+    }
     @if(TracksData != null)
     {
             <div class="d-flex flex-column align-items-center">
@@ -33,7 +52,6 @@
             <img src=@track["imgUrl"] width="25rem" height="25rem" class="m-2"/>
             <p class="m-2 text-white">@track["title"]</p>
             <p class="m-2 text-white">@track["name"]</p>
-            <p class="m-2 text-white">@track["likes"] <img src="~/likes.png" width="15rem" height="15rem"/></p>
             <p class="m-2 text-white"><span class="data">Duration:</span> @track["duration"] secs</p>
         </div>
         </a>

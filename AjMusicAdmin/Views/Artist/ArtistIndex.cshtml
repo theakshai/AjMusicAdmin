@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var ArtistData = ViewBag.ArtistData;
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/trackindex.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AjMusicAdmin.styles.css" asp-append-version="true" />
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</head>
+<body>
+    @if(ArtistData != null)
+    {
+            <div class="d-flex flex-column align-items-center">
+        @foreach(var artist in ArtistData){
+            var artistId = artist["id"];
+
+        <div class="music-card d-flex flex-row justify-content-around align-items-center track-card m-5" >
+            <img src=@artist["imgUrl"] width="25rem" height="25rem" class="m-2"/>
+            <p class="m-2 text-white">@artist["name"]</p>
+        </div>
+        }
+        </div>
+    }
+</body>
+</html>
+
+

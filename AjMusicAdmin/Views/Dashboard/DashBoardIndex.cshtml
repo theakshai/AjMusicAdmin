@@ -22,14 +22,14 @@
     {
         
     <section class="d-flex flex-row align-items-center justify-content-center">
-        <a asp-controller="Users" asp-action="Index">
+        <!--
         <div class="template mx-5 d-flex flex-column align-items-center ">
             <div class="cards mt-4">
                <h1 class="text-white text-center">@usersCount</h1> 
                <h1>Users</h1>
             </div>
-        </div>
-        </a>
+
+            -->
         <a asp-controller="Tracks" asp-action="TracksIndex">
         <div class="template mx-5 d-flex flex-column align-items-center">
             <div class="cards mt-4">
@@ -38,12 +38,15 @@
             </div>
         </div>
         </a>
+
+        <a asp-controller="Artist" asp-action="ArtistIndex">
         <div class="template mx-5 d-flex flex-column align-items-center">
             <div class="cards mt-4">
                <h1 class="text-white text-center">@artistsCount</h1> 
                <h1>Artist</h1>
             </div>
         </div>
+        </a>
         </section>
     }
     else

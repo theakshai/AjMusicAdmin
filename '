@@ -1,4 +1,4 @@
-﻿using System.Net.Http;
+using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -13,6 +13,15 @@ namespace AjMusicAdmin.Controllers
         public async Task<IActionResult> TracksIndex(string? query, string? id)
         {
 
+            if (id != null)
+            {
+                var _dclient = new HttpClient();
+                var _dresponse = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri($"https://localhost:7020/ajfy/searchsong?query={query}")
+                };
+            }
 
             if (query != null)
             {
@@ -25,17 +34,19 @@ namespace AjMusicAdmin.Controllers
 
                 try
                 {
+                    Console.WriteLine("INside calling");
                     using var response = await _qclient.SendAsync(_qrequest);
                     if (response.IsSuccessStatusCode)
                     {
                         var body = (JArray)JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync());
                         Console.WriteLine($"The body is {body}");
                         ViewBag.SearchedSong = body;
+                        Console.WriteLine(body);
                         return View();
                     }
                     else
                     {
-                        return View();
+                        return View()
                     }
                 }
                 catch (Exception e)
@@ -172,37 +183,6 @@ namespace AjMusicAdmin.Controllers
             }
             ViewBag.Data = "API is Currently Down";
             return View();
-        }
-
-
-        public async Task<IActionResult> DeleteSongById(string? id)
-        {
-            if (id != null)
-            {
-                var _dclient = new HttpClient();
-                var _drequest = new HttpRequestMessage
-                {
-                    Method = HttpMethod.Delete,
-                    RequestUri = new Uri($"https://localhost:7020/ajfy/admin/deletesongbyid?id={id}")
-                };
-
-                try
-                {
-                    using var response = await _dclient.SendAsync(_drequest);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return RedirectToAction(nameof(TracksIndex));
-                    }
-                    else
-                    {
-                        return RedirectToAction(nameof(TracksIndex));
-                    }
-                }catch(Exception e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
-            }
-                return View();
         }
 
     }

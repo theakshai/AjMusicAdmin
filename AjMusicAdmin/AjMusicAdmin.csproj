@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Artist\GetArtistById.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
@@ -19,7 +23,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Artist\" />
+    <UpToDateCheckInput Remove="Views\Artist\GetArtistById.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Artist\GetArtistById.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Artist\GetArtistById.cshtml" />
   </ItemGroup>
 
 </Project>
